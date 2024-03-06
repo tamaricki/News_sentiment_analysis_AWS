@@ -167,7 +167,7 @@ def lambda_handler(event, context):
 
         output_path_file=f'/tmp/{filename}' #in lambda files are in tmp folder
         with open(output_path_file,'w') as out:
-            news_to_save=[convert_timestamp_to_int(news) for news in recent_news]
+            news_to_save=[convert_timestamp_to_int(news) for news in clean_news] 
 
             json.dump(news_to_save, out)
         upload_file_s3(local_file_name=output_path_file, bucket=S3_BUCKET_NAME, s3_object_name=f'raw-messages/{filename}')

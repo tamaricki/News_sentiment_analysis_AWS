@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "tweet-analytics"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+nltk = ">=3.6.4"
+atomicwrites = ">=1.4.0"
+boto3 = ">=1.18.53"
+streamlit = ">=0.89.0"
+streamlit-aggrid = ">=0.2.2"
+awscli = ">=1.20.53"
+psycopg2-binary = ">=2.9.1"
+newsapi-python = ">=0.2.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
