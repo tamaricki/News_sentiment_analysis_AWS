@@ -8,30 +8,35 @@ from st_aggrid import AgGrid, JsCode, GridOptionsBuilder
 import sys
 import os
 
-import lambda_
+parent = os.path.dirname(os.path.realpath(__file__))+'/../..'
+sys.path.append(parent)
+import lambda_.lambda_function
+#c=lambda_.lambda_function.get_db_connection()
 
+#@st.cache_resource
+def get_data(start_date='2024-01-01', end_date='2026-01-01'):
 
-@st.cache(supress_st_warning=True)
-def get_data(start_date, end_date):
-
-    conn = lambda_.lambda_funciton.get_db_connection()
-    sql="""select * from tweets_analytcs where timestampt betweet date('{start_date}' and date('{end_date}') """
+    conn = lambda_.lambda_function.get_db_connection()
+    sql=f"""select * from tweets_analytics where timestamp between date('{start_date}') and date('{end_date}') """
     print(sql)
 
-    df = pd.read_sql_query(sql)
+    df = pd.read_sql_query(sql, conn)
+    #print(df)
     now = str(datetime.datetime.now())[:-7]
 
     st.sidebar.markdown("Latest update data: {} Adjust starting date or ending date to refresh data".format(now))
+    return df
 
 
 def get_local_tz():
     return datetime.datetime.now(datetime.timezone.utc).astimezone().tzinfo
 
-@st.cache
+#@st.cache_data
 def process_data(df, key_word, start_date, end_date):
     #converting to local timezone
-    local_tz=get_local_tz
+    local_tz=get_local_tz()
     df['timestamp'] = df['timestamp'].dt.tz_convert(local_tz)
+    #print(df)
 
     #removing author column 
     df=df.drop(columns=['author'])
@@ -43,7 +48,7 @@ def process_data(df, key_word, start_date, end_date):
     #sort column index
     df=df.reindex(['timestamp', 'sentiment_score', 'text'], axis=1)
 
-
+    return df
 
 def display_table(df: pd.DataFrame) -> None:
     # this is some javascript code
@@ -54,7 +59,7 @@ def display_table(df: pd.DataFrame) -> None:
         if (params.value < 0) {
             return {
                 'color': 'black',
-                'backgroundColor': 'darkred'
+                'backgroundColor': 'red'
             }
         } else if (params.value == 0) {
             return {
@@ -85,14 +90,15 @@ if __name__=="__main__":
     st.title('News analytics sentiment score dashboard')
     view_name=st.sidebar.radio("", ("View news", 'Analytics'))
     keyword=st.sidebar.text_input("Keyword", "")
-    start_date = st.side_bar.text_input("Starting date", "2024-03-12")
-    end_date = st.side_bar.text_input("End date", "2024-03-12")
+    start_date = st.sidebar.text_input("Starting date", "2024-02-01")
+    end_date = st.sidebar.text_input("End date", "2025-03-01")
     st.sidebar.subheader("Explanation")
     st.sidebar.markdown("Positive number in sentiment column indicates positive sentiment, and negative value negative. Scores above 0.2 or under -0.2 are considered very positive or very negative ")
 
 
-    df=get_data(start_date=start_date, end_date=end_date)
-    df = process_data(df, key_word=keyword, start_date=start_date, end_date=end_date)
+    df= get_data(start_date=start_date, end_date=end_date)
+    #print(type(df))
+    df=process_data(df, key_word=keyword, start_date=start_date, end_date=end_date)
 
 
     if df.empty:
@@ -118,3 +124,5 @@ if __name__=="__main__":
 
 
 
+
+# %%

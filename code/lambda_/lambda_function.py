@@ -85,8 +85,8 @@ def upload_file_s3(local_file_name, bucket, s3_object_name=None):
 def get_db_connection():
     conn = psycopg2.connect(user='postgres', password=os.environ['DB_PASSWORD'], host=os.environ['DB_HOST'], 
             port='5432', connect_timeout=1)
-
     return conn
+    
 ##CHANGE
 def convert_timestamp_to_int(news):
     news=news.copy()
