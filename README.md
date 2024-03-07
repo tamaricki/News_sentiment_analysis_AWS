@@ -1,1 +1,3 @@
-# News_sentiment_analysis_AWS
+# News Sentiment Analysis On AWS Lambda
+
+WIP
