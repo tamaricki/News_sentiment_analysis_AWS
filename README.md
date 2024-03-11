@@ -1,4 +1,4 @@
-# News Sentiment Analysis On AWS Lambda
+# News Sentiment Analysis With AWS Lambda
 
 Outcome of the project is streamlit dashboard showing sentiment of sport news published in last 24 hours coming from the [news API](https://newsapi.org/). In order to deploy this app to the public, following things are done: 
 * Setting up the news API
