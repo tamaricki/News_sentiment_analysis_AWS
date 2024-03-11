@@ -10,6 +10,7 @@ Outcome of the project is streamlit dashboard showing sentiment of sport news pu
 * Docker image creation and dependency management with poetry
 * Setting up ECR (Elastic Container Registry)
 * Pushing created docker image to ECR and deploying it to Fargate Elastic Container service
+* (disabled) Change the security group rules to enable access to dashboard from internet
 
 Dashboard looks like follows: 
 ![alt text](https://github.com/tamaricki/News_sentiment_analysis_AWS/blob/main/code/images/streamlit_screen.png)
@@ -17,6 +18,7 @@ Dashboard looks like follows:
 
 
 ### Design
+
 
 ![alt text](https://github.com/tamaricki/News_sentiment_analysis_AWS/blob/main/code/images/newsSentiment_projectGraph.png)
 
