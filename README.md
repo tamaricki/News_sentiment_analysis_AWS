@@ -4,7 +4,7 @@ Outcome of the project is streamlit dashboard showing sentiment of sport news pu
 * Setting up the news API
 * Creating on AWS RDS Postgres DB
 * Creating S3 bucket as raw storage
-* Create Lambda functions which extracts and analyses the news sends the news and sentiment results to Postgres DB as well as in S3 storage
+* Create Lambda function which extracts and analyses the news, sends the news and sentiment results to postgres DB as well as in S3 storage
 * Schedule Lambda with EventBridge
 * Streamlit app creation and local test
 * Docker image creation and dependency management with poetry
@@ -13,7 +13,10 @@ Outcome of the project is streamlit dashboard showing sentiment of sport news pu
 * (disabled) Change the security group rules to enable access to dashboard from internet
 
 Dashboard looks like follows: 
+
 ![alt text](https://github.com/tamaricki/News_sentiment_analysis_AWS/blob/main/code/images/streamlit_screen.png)
+
+Positive, negative and neutral news are colored accordingly 
 
 
 
