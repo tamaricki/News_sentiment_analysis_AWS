@@ -11,11 +11,14 @@ Outcome of the project is streamlit dashboard showing sentiment of sport news pu
 * Setting up ECR (Elastic Container Registry)
 * Pushing created docker image to ECR and deploying it to Fargate Elastic Container service
 
+Dashboard looks like follows: 
+![alt text](https://github.com/tamaricki/News_sentiment_analysis_AWS/blob/main/code/images/streamlit_screen.png)
+
 
 
 ### Design
 
-![alt text]()
+![alt text](https://github.com/tamaricki/News_sentiment_analysis_AWS/blob/main/code/images/newsSentiment_projectGraph.png)
 
 
 ### Useful Links 
