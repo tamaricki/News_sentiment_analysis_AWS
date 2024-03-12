@@ -29,6 +29,7 @@ Positive, negative and neutral news are colored accordingly
 ### Useful Links 
 
 https://alpopkes.com/posts/python/packaging_tools/ 
+https://github.com/team-data-science/ML-on-AWS-1 
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html 
 https://newsapi.org/ 
 https://docs.aws.amazon.com/lambda/latest/dg/chapter-layers.html
