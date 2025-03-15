@@ -1,6 +1,6 @@
 # News Sentiment Analysis With AWS Lambda
 
-Outcome of the project is streamlit dashboard showing sentiment of sport news published in last 24 hours coming from the [news API](https://newsapi.org/). In order to deploy this app to the public, following things are done: 
+Outcome of the project is streamlit dashboard showing sentiment of sport news published in last 24 hours coming from the [news API](https://newsapi.org/). To deploy this app, following things are done: 
 * Setting up the news API
 * Creating on AWS RDS Postgres DB
 * Creating S3 bucket as raw storage
@@ -12,7 +12,7 @@ Outcome of the project is streamlit dashboard showing sentiment of sport news pu
 * Pushing created docker image to ECR and deploying it to Fargate Elastic Container service
 * (disabled) Change the security group rules to enable access to dashboard from internet
 
-Dashboard looks like follows: 
+Dashboard: 
 
 ![alt text](https://github.com/tamaricki/News_sentiment_analysis_AWS/blob/main/code/images/streamlit_screen.png)
 
